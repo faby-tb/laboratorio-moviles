@@ -84,7 +84,7 @@ const Router = () => (
 	<NavigationContainer >
 		<Tab.Navigator
 			screenOptions={({ route }) => ({
-				tabBarIcon: ({ focused, color, size }) => {
+				tabBarIcon: ({ focused }) => {
 					let iconName;
 					if (route.name === constants.SCREEN.MAIN) {
                         iconName = 'appstore1';
@@ -102,19 +102,25 @@ const Router = () => (
 				},
 			})}
 			tabBarOptions={{
-				showLabel: false,
+				showLabel: true,
+				activeTintColor: constants.COLORS.WHITE,
+				inactiveTintColor: constants.COLORS.LIGHT_GRAY2,
 				keyboardHidesTabBar: true,
 				tabStyle: {
 					backgroundColor: 'rgba(0,0,0,0)',
 				},
+				safeAreaInsets: {
+					bottom: 7,
+				},
 				style: {
 					backgroundColor: constants.COLORS.GRAY,
+					borderTopColor: 'rgba(0,0,0,0)',
 					borderTopLeftRadius: 25,
 					borderTopRightRadius: 25,
 					position: 'absolute',
 					bottom: 0,
 					width: width,
-					height: 70,
+					height: 80,
 					zIndex: 10,
 					padding: 10,
 				},

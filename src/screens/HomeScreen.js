@@ -8,7 +8,7 @@ import constants from '../utils/constants';
 
 import Cards from '../components/Cards';
 
-const { width, height } = Dimensions.get('screen');
+const { width } = Dimensions.get('screen');
 
 const ActiveIndicator = () => {
 	return (
@@ -28,61 +28,61 @@ export const HomeScreen = ({ navigation, route }) => {
             <Text style={styles.title}> Magic: The Gathering</Text>
         </View>
 
-			<ScrollView style={styles.tabstop} horizontal={true}>
-				<View style={styles.tab_container} >
-					<Pressable style={styles.tab} onPress={() => setActiveTab('artifact')}>
-						<Text
-							style={[
-								styles.tabText,
-								{
-									backgroundColor:
-									activeTab === 'artifact'
-										? constants.COLORS.PRIMARY
-										: constants.COLORS.LIGHT_GRAY2,
-								},
-							]}
-						>
-							ARTIFACT
-						</Text>
-						{activeTab === 'artifact' && <ActiveIndicator />}
-					</Pressable>
-					<Pressable style={styles.tab} onPress={() => setActiveTab('character')}>
-						<Text
-							style={[
-								styles.tabText,
-								{
-									backgroundColor:
-									activeTab === 'character'
-										? constants.COLORS.PRIMARY
-										: constants.COLORS.LIGHT_GRAY2,
-								},
-							]}
-						>
-							CHARACTER
-						</Text>
-						{activeTab === 'character' && <ActiveIndicator />}
-					</Pressable>
-					<Pressable style={styles.tab} onPress={() => setActiveTab('creature')}>
-						<Text
-							style={[
-								styles.tabText,
-								{
-									backgroundColor:
-									activeTab === 'creature'
-										? constants.COLORS.PRIMARY
-										: constants.COLORS.LIGHT_GRAY2,
-								},
-							]}
-						>
-							CREATURE
-						</Text>
-						{activeTab === 'creature' && <ActiveIndicator />}
-					</Pressable>
-				</View>
-			</ScrollView>
-            {activeTab === 'artifact' && <Cards type="Artifact" {...{ navigation }} />}
-            {activeTab === 'character' && <Cards type="Character" {...{ navigation }} />}
-            {activeTab === 'creature' && <Cards type="Creature" {...{ navigation }} />}
+		<ScrollView style={styles.tabstop} horizontal={true}>
+			<View style={styles.tabContainer} >
+				<Pressable style={styles.tab} onPress={() => setActiveTab('artifact')}>
+					<Text
+						style={[
+							styles.tabText,
+							{
+								backgroundColor:
+								activeTab === 'artifact'
+									? constants.COLORS.PRIMARY
+									: constants.COLORS.LIGHT_GRAY2,
+							},
+						]}
+					>
+						ARTIFACT
+					</Text>
+					{activeTab === 'artifact' && <ActiveIndicator />}
+				</Pressable>
+				<Pressable style={styles.tab} onPress={() => setActiveTab('character')}>
+					<Text
+						style={[
+							styles.tabText,
+							{
+								backgroundColor:
+								activeTab === 'character'
+									? constants.COLORS.PRIMARY
+									: constants.COLORS.LIGHT_GRAY2,
+							},
+						]}
+					>
+						CHARACTER
+					</Text>
+					{activeTab === 'character' && <ActiveIndicator />}
+				</Pressable>
+				<Pressable style={styles.tab} onPress={() => setActiveTab('creature')}>
+					<Text
+						style={[
+							styles.tabText,
+							{
+								backgroundColor:
+								activeTab === 'creature'
+									? constants.COLORS.PRIMARY
+									: constants.COLORS.LIGHT_GRAY2,
+							},
+						]}
+					>
+						CREATURE
+					</Text>
+					{activeTab === 'creature' && <ActiveIndicator />}
+				</Pressable>
+			</View>
+		</ScrollView>
+		{activeTab === 'artifact' && <Cards type="Artifact" {...{ navigation }} />}
+		{activeTab === 'character' && <Cards type="Character" {...{ navigation }} />}
+		{activeTab === 'creature' && <Cards type="Creature" {...{ navigation }} />}
     </SafeAreaView>);
 };
 
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
 		alignContent: "space-around",
 		marginHorizontal: 8,
 	},
-	tab_container: {
+	tabContainer: {
 		width,
 		flexDirection: 'row',
 		justifyContent: 'center',
