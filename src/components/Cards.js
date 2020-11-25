@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
 	list: {
 		paddingHorizontal: 15,
 		marginHorizontal: 0,
-		flexDirection: "column"
 	},
 	container: {
 		flex: 1,

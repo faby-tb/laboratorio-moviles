@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import { View, ScrollView,  Text, Image, StyleSheet, SafeAreaView } from 'react-native'
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
 
 import constants from '../utils/constants';
+import { color } from 'react-native-reanimated';
 
 
 
@@ -37,11 +38,22 @@ export const DetailsScreen = ({ navigation, route }) => {
             </View>
             <ScrollView>
                 <View style={styles.content}>
-                    <View style={styles.contentSecondary}>
+                    <View style={styles.contentPrimary}>
                         <Image
+                        resizeMode="cover"
+                        style={styles.poster}
                         source={{
                             uri: `${card.imageUrl}`,
                         }}/>
+                        <View>
+                            <Text style={styles.halfParagraph}  numberOfLines={1}><FontAwesome name="user" size={16} color={constants.COLORS.PRIMARY}/> Artist: <Text style={{fontWeight: 'bold'}}>{card.artist}</Text></Text>
+                            <Text style={styles.halfParagraph}> <Text style={{color:constants.COLORS.PRIMARY,fontSize:16}}>#</Text>  Number: <Text style={{fontWeight: 'bold'}}>{card.number}</Text></Text>
+                            <Text style={styles.halfParagraphRounded}>Mana cost <Text style={styles.circle}>{card.cmc}</Text></Text>
+                            <Text style={styles.halfParagraphRounded}>Multiverse <Text>{card.multiverseid}</Text></Text>
+                            <Text style={styles.halfParagraph}><Text style={styles.title}>Rarity:</Text> {card.rarity}</Text>
+                        </View>
+                    </View>
+                    <View style={styles.contentSecondary}>
                             <Text style={styles.paragraph}><Text style={styles.title}>Set: </Text>{card.set}</Text>
                             <Text style={styles.paragraph}>{card.text}</Text>
                             <Text style={styles.backParagraph}><Text style={styles.title}>Original Type: </Text>{card.originalType}</Text>
@@ -68,9 +80,16 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 25,
         zIndex: 15,
     },
+    contentPrimary: {
+        position: 'relative',
+        flexDirection: 'row',
+        paddingHorizontal: 20,
+        color: constants.COLORS.WHITE,
+        zIndex: 10,
+    },
     contentSecondary: {
         position: 'relative',
-        paddingHorizontal: 30,
+        paddingHorizontal: 20,
         color: constants.COLORS.WHITE,
         zIndex: 10,
     },
@@ -82,16 +101,20 @@ const styles = StyleSheet.create({
         backgroundColor: constants.COLORS.GRAY,
         zIndex: 50,
     },
+    poster: {
+		width: "100%",
+		height: 135,
+		backgroundColor: "#000000",
+		borderRadius: 16,
+	},
     title: {
         color: constants.COLORS.WHITE,
         fontWeight: "bold",
         flexGrow: 1,
         fontSize:16,
     },
-    release_date: {
-        fontSize: 12,
-        textTransform: "capitalize",
-        paddingBottom: 10,
+    circle:{
+        backgroundColor: constants.COLORS.LIGHT_GRAY2,
     },
     poster: {
         borderRadius: 16,
@@ -137,6 +160,35 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         borderRadius: 20,
         textAlign: "justify",
+    },
+    halfParagraph: {
+        width:180,
+        marginTop: 10,
+        fontSize: 10,
+        fontWeight: '300',
+        color: constants.COLORS.WHITE,
+        lineHeight: 22,
+        backgroundColor: constants.COLORS.GRAY,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingHorizontal: 10,
+        borderRadius: 10,
+        textAlign: "justify",
+    },
+    halfParagraphRounded: {
+        width:180,
+        marginTop: 10,
+        fontSize: 10,
+        fontWeight: '300',
+        color: constants.COLORS.WHITE,
+        lineHeight: 22,
+        backgroundColor: constants.COLORS.GRAY,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingHorizontal: 10,
+        borderRadius: 50,
+        textAlign: "justify",
+        flexWrap: "wrap"
     },
     containerButtonIcon: {
         marginTop: 25,

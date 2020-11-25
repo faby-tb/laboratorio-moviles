@@ -3,7 +3,6 @@ import React from 'react';
 import { View, StatusBar } from 'react-native';
 
 import Router from './Router';
-import constants from './src/utils/constants';
 
 const assets = [];
 
