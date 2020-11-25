@@ -77,11 +77,9 @@ export const HomeScreen = ({ navigation, route }) => {
 					{activeTab === 'creature' && <ActiveIndicator />}
 				</Pressable>
 			</ScrollView>
-            <View style={styles.main}>
-                {activeTab === 'artifact' && <Cards type="Artifact" {...{ navigation }} />}
-                {activeTab === 'character' && <Cards type="Character" {...{ navigation }} />}
-                {activeTab === 'creature' && <Cards type="Creature" {...{ navigation }} />}
-            </View>
+            {activeTab === 'artifact' && <Cards type="Artifact" {...{ navigation }} />}
+            {activeTab === 'character' && <Cards type="Character" {...{ navigation }} />}
+            {activeTab === 'creature' && <Cards type="Creature" {...{ navigation }} />}
     </SafeAreaView>);
 };
 
@@ -89,10 +87,6 @@ const styles = StyleSheet.create({
     app:{
         backgroundColor: constants.COLORS.DARK,
         flex: 1,
-    },  
-    main:{
-        flexDirection: "row",
-        flexWrap: "wrap"
     },
     icon:{
         backgroundColor: constants.COLORS.PRIMARY,
