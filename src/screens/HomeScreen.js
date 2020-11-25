@@ -87,6 +87,12 @@ export const HomeScreen = ({ navigation, route }) => {
 };
 
 const styles = StyleSheet.create({
+	container: {
+		flexDirection: 'row',
+		justifyContent: 'flex-start',
+		alignItems: 'flex-start',
+		flexWrap: 'wrap',
+	},
 	app: {
 		backgroundColor: constants.COLORS.DARK,
 		flex: 1,

@@ -1,7 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, Image, Pressable, Text } from 'react-native';
+import { View, StyleSheet, Image, Pressable, Text, Dimensions} from 'react-native';
 
 import constants from '../utils/constants';
+
+const { width } = Dimensions.get('screen');
 
 const Card = ({ card, navigation }) => {
 	const { name, cmc, number, multiverseid, setName, rulings, originalText, originalType, type, rarity, artist, imageUrl, text } = card;
@@ -41,6 +43,7 @@ const Card = ({ card, navigation }) => {
 
 const styles = StyleSheet.create({
 	card: {
+		marginLeft: width/4,
 		backgroundColor: constants.COLORS.GRAY,
 		marginVertical: 5,
 		height: 280,
