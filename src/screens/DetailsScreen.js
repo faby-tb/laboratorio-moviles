@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     halfParagraph: {
         width:180,
         marginTop: 10,
-        fontSize: 10,
+        fontSize: 12,
         fontWeight: '300',
         color: constants.COLORS.WHITE,
         lineHeight: 22,
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     halfParagraphRounded: {
         width:180,
         marginTop: 10,
-        fontSize: 10,
+        fontSize: 12,
         fontWeight: '300',
         color: constants.COLORS.WHITE,
         lineHeight: 22,

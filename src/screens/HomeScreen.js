@@ -94,7 +94,6 @@ const styles = StyleSheet.create({
         borderRadius: 50,
     },
 	container: {
-        flex: 1,
 		backgroundColor: constants.COLORS.LIGHT_GRAY2
 	},
 	titleContainer: {
