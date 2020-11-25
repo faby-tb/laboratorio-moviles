@@ -21,20 +21,20 @@ const Card = ({ card, navigation }) => {
 			/>
 			<View style={styles.textContainer}>
 				<View style={styles.titleContainer}>
+					<Text style={styles.mana}>
+						{cmc}
+					</Text>
 					<Text numberOfLines={1}  style={styles.title}>
 						{name}
 					</Text>
 					<Text style={styles.rarity}>
 						{rarity}
 					</Text>
+				</View>
+			</View>
 					<Text style={styles.boton}>
 						Saber más
 					</Text>
-				</View>
-				<Text style={styles.mana}>
-					{cmc}
-				</Text>
-			</View>
 		</Pressable>
 	);
 };
@@ -43,10 +43,11 @@ const styles = StyleSheet.create({
 	card: {
 		backgroundColor: constants.COLORS.GRAY,
 		marginVertical: 5,
-		height: 220,
-		width: '40%',
+		height: 280,
+		width: '45%',
 		paddingBottom: 20,
-		borderRadius: 20,
+		borderRadius: 15,
+		elevation: 10,
 	},
 	titleContainer: {
 		flexDirection: 'column',
@@ -54,51 +55,54 @@ const styles = StyleSheet.create({
 	textContainer:{
 		height: 60,
 		flexDirection: 'row',
-		left: 4
+		left: 6,
+		top: 4
 	},
 	title: {
 		color: constants.COLORS.WHITE,
 		fontWeight: 'bold',
 		flexGrow: 1,
 		flexWrap: 'wrap',
-		marginRight: 12,
-		fontSize: 12,
+		marginRight: 16,
+		fontSize: 18,
 		top: 4
 	},
 	mana: {
 		color: constants.COLORS.WHITE,
-		fontSize: 14,
+		fontSize: 18,
 		backgroundColor: constants.COLORS.LIGHT_GRAY2,
-		width: 35,
-		height: 35,
+		width: 30,
+		height: 30,
 		borderRadius: 50,
 		position: 'absolute',
 		textAlign: "center",
 		textAlignVertical: "center",
 		fontWeight: "bold",
-		left: 110,
+		left: 135,
 		top: -20
 		
 	},
 	boton: {
 		color: constants.COLORS.WHITE,
 		backgroundColor: constants.COLORS.PRIMARY,
-		width: 125,
+		width: 150,
 		textAlign: "center",
 		textAlignVertical: "center",
-		paddingVertical: 10,
-		borderRadius: 15,
-		top: 10
+		paddingVertical: 9,
+		borderRadius: 10,
+		marginHorizontal: 6,
+		top: 4
 	},
 	rarity: {
 		color: constants.COLORS.LIGHT_GRAY,
-		fontSize: 12,
+		fontSize: 14,
+		bottom: 10,
 	},
 	poster: {
 		width: "100%",
-		height: 135,
+		height: 170,
 		backgroundColor: "#000000",
-		borderRadius: 16,
+		borderRadius: 15,
 		borderBottomRightRadius: 0,
 		borderBottomLeftRadius: 0,
 	},
