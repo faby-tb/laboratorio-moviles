@@ -35,14 +35,8 @@ export const DetailsScreen = ({ navigation, route }) => {
             </View>
             <ScrollView>
                 <View style={styles.content}>
-                        <Image
-                        resizeMode="cover"
-                        style={styles.poster}
-                        source={{
-                            uri: `${card.imageUrl}`,
-                        }}/>
-                        {console.log(card.imageUrl)}
                     <View style={styles.contentPrimary}>
+                        <View style={styles.yes}/>
                         <View>
                             <Text style={styles.halfParagraph}  numberOfLines={1}><FontAwesome name="user" size={16} color={constants.COLORS.PRIMARY}/> Artist: <Text style={{fontWeight: 'bold'}}>{card.artist}</Text></Text>
                             <Text style={styles.halfParagraph}> <Text style={{color:constants.COLORS.PRIMARY,fontSize:16}}>#</Text>  Number: <Text style={{fontWeight: 'bold'}}>{card.number}</Text></Text>
@@ -56,8 +50,8 @@ export const DetailsScreen = ({ navigation, route }) => {
                             <Text style={styles.paragraph}>{card.text}</Text>
                             <Text style={styles.backParagraph}><Text style={styles.title}>Original Type: </Text>{card.originalType}</Text>
                             <Text style={styles.frontParagraph}><Text style={styles.title}>Original Text: </Text>{card.originalText}</Text>
-                            <Text style={styles.backParagraph}><Text style={styles.title}>Date: </Text>{card.rulings[0].date}</Text>
-                            <Text style={styles.frontParagraph}><Text style={styles.title}>Rulings: </Text>{card.rulings[0].text}</Text>
+                            <Text style={styles.backParagraph}><Text style={styles.title}>Date: </Text>{card.rulings[0] != null ? card.rulings[0].date : "null"}</Text>
+                            <Text style={styles.frontParagraph}><Text style={styles.title}>Rulings: </Text>{card.rulings[0] != null ? card.rulings[0].text : "null"}</Text>
                         </View>
                     </View>
                 <View style={{height : 100}}/>
@@ -70,6 +64,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: constants.COLORS.DARK,
+    },
+    yes:{
+        backgroundColor: constants.COLORS.LIGHT_GRAY,
+        width:'40%',
+        height: 220,
+        marginTop: 20,
+        marginRight: 10,  
+        borderRadius: 20
     },
     content: {
         paddingBottom: 0,
@@ -100,7 +102,7 @@ const styles = StyleSheet.create({
         zIndex: 50,
     },
     poster: {
-		width: "100%",
+		width: "100",
 		height: 135,
 		backgroundColor: "#000000",
 		borderRadius: 16,

@@ -8,10 +8,10 @@ const assets = [];
 
 const App = () => {
 	return (
-			<View style={{ flex: 1 }}>
-				<StatusBar barStyle={'dark-content'}></StatusBar>
-				<Router></Router>
-			</View>
+		<View style={{ flex: 1 }}>
+			<StatusBar barStyle={'dark-content'}></StatusBar>
+			<Router></Router>
+		</View>
 	);
 };
 
