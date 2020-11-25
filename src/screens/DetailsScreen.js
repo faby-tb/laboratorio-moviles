@@ -46,15 +46,15 @@ export const DetailsScreen = ({ navigation, route }) => {
                             uri: `${card.imageUrl}`,
                         }}/>
                         <View>
-                            <Text style={styles.halfParagraph}  numberOfLines={1}><FontAwesome name="user" size={16} color={constants.COLORS.PRIMARY}/> Artist: <Text style={{fontWeight: 'bold'}}>{card.artist}</Text></Text>
-                            <Text style={styles.halfParagraph}> <Text style={{color:constants.COLORS.PRIMARY,fontSize:16}}>#</Text>  Number: <Text style={{fontWeight: 'bold'}}>{card.number}</Text></Text>
-                            <Text style={styles.halfParagraphRounded}>Mana cost <Text style={styles.circle}>{card.cmc}</Text></Text>
-                            <Text style={styles.halfParagraphRounded}>Multiverse <Text>{card.multiverseid}</Text></Text>
-                            <Text style={styles.halfParagraph}><Text style={styles.title}>Rarity:</Text> {card.rarity}</Text>
+                            <Text style={styles.halfParagraph}  numberOfLines={1}><FontAwesome name="user" size={16} color={constants.COLORS.PRIMARY}/> Artist: <Text style={{fontWeight: 'bold', fontSize: 14}}>{card.artist}</Text></Text>
+                            <Text style={styles.halfParagraph}> <Text style={{color:constants.COLORS.PRIMARY,fontSize:16}}>#</Text>  Number: <Text style={{fontWeight: 'bold', fontSize: 14}}>{card.number}</Text></Text>
+                            <Text style={styles.halfParagraphRounded}>Mana cost <Text style={styles.halfParagraphInfo}>{card.cmc}</Text></Text>
+                            <Text style={styles.halfParagraphRounded}>Multiverse <Text style={styles.halfParagraphInfo}>{card.multiverseid}</Text></Text>
+                            <Text style={styles.halfParagraph}><Text style={styles.subtitle}>Rarity:</Text> {card.rarity}</Text>
                         </View>
                     </View>
                     <View style={styles.contentSecondary}>
-                            <Text style={styles.paragraph}><Text style={styles.title}>Set: </Text>{card.set}</Text>
+                            <Text style={styles.paragraph}><Text style={styles.subtitle}>Set: </Text>{card.set}</Text>
                             <Text style={styles.paragraph}>{card.text}</Text>
                             <Text style={styles.backParagraph}><Text style={styles.title}>Original Type: </Text>{card.originalType}</Text>
                             <Text style={styles.frontParagraph}><Text style={styles.title}>Original Text: </Text>{card.originalText}</Text>
@@ -113,11 +113,8 @@ const styles = StyleSheet.create({
         flexGrow: 1,
         fontSize:16,
     },
-    circle:{
-        backgroundColor: constants.COLORS.LIGHT_GRAY2,
-    },
     poster: {
-        borderRadius: 16,
+        borderRadius: 10,
     },
     backParagraph: {
         marginTop: 10,
@@ -126,10 +123,10 @@ const styles = StyleSheet.create({
         color: constants.COLORS.WHITE,
         lineHeight: 22,
         backgroundColor: constants.COLORS.LIGHT_GRAY2,
-        paddingTop: 20,
+        paddingTop: 10,
         paddingBottom: 30,
         paddingHorizontal: 10,
-        borderRadius: 20,
+        borderRadius: 15,
         borderBottomRightRadius: 0,
         borderBottomLeftRadius: 0,
         textAlign: "justify",
@@ -145,7 +142,7 @@ const styles = StyleSheet.create({
         paddingTop: 15,
         paddingBottom: 20,
         paddingHorizontal: 10,
-        borderRadius: 20,
+        borderRadius: 15,
         textAlign: "justify",
     },
     paragraph: {
@@ -158,7 +155,7 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         paddingBottom: 20,
         paddingHorizontal: 10,
-        borderRadius: 20,
+        borderRadius: 15,
         textAlign: "justify",
     },
     halfParagraph: {
@@ -175,6 +172,12 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         textAlign: "justify",
     },
+    halfParagraphInfo: {
+        right: 50,
+        position: 'relative',
+        marginHorizontal: 15,
+        backgroundColor: constants.COLORS.PRIMARY,  
+    },
     halfParagraphRounded: {
         width:180,
         marginTop: 10,
@@ -186,17 +189,23 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         paddingBottom: 10,
         paddingHorizontal: 10,
-        borderRadius: 50,
+        borderRadius: 10,
         textAlign: "justify",
         flexWrap: "wrap"
     },
     containerButtonIcon: {
         marginTop: 25,
-		borderRadius: 20,
+		borderRadius: 15,
 		width: 36,
 		height: 36,
 		margin: 20,
 		justifyContent: 'center',
         alignItems: 'center',
-	},
+    },
+    subtitle: {
+        color: constants.COLORS.WHITE,
+        fontWeight: "bold",
+        flexGrow: 1,
+        fontSize:14,
+    },
 });
