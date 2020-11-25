@@ -50,8 +50,8 @@ export const DetailsScreen = ({ navigation, route }) => {
                             <Text style={styles.paragraph}>{card.text}</Text>
                             <Text style={styles.backParagraph}><Text style={styles.title}>Original Type: </Text>{card.originalType}</Text>
                             <Text style={styles.frontParagraph}><Text style={styles.title}>Original Text: </Text>{card.originalText}</Text>
-                            <Text style={styles.backParagraph}><Text style={styles.title}>Date: </Text>{card.rulings[0] != null ? card.rulings[0].date : "null"}</Text>
-                            <Text style={styles.frontParagraph}><Text style={styles.title}>Rulings: </Text>{card.rulings[0] != null ? card.rulings[0].text : "null"}</Text>
+                            <Text style={card.rulings[0] != null ? styles.backParagraph : styles.null}><Text style={styles.title}>Date: </Text>{card.rulings[0] != null ? card.rulings[0].date : "null"}</Text>
+                            <Text style={card.rulings[0] != null ? styles.backParagraph : styles.null}><Text style={styles.title}>Rulings: </Text>{card.rulings[0] != null ? card.rulings[0].text : "null"}</Text>
                         </View>
                     </View>
                 <View style={{height : 100}}/>
@@ -64,6 +64,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: constants.COLORS.DARK,
+    },
+    null:{
+        display: "none"
     },
     yes:{
         backgroundColor: constants.COLORS.LIGHT_GRAY,
