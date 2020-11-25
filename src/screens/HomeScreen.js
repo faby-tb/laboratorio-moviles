@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { View, Text, Pressable, StyleSheet, SafeAreaView, ScrollView  } from 'react-native';
+import { View, Text, Pressable, StyleSheet, SafeAreaView, ScrollView, Dimensions } from 'react-native';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
@@ -8,6 +8,7 @@ import constants from '../utils/constants';
 
 import Cards from '../components/Cards';
 
+const { width, height } = Dimensions.get('screen');
 
 const ActiveIndicator = () => {
 	return (
@@ -28,54 +29,56 @@ export const HomeScreen = ({ navigation, route }) => {
         </View>
 
 			<ScrollView style={styles.tabstop} horizontal={true}>
-				<Pressable style={styles.tab} onPress={() => setActiveTab('artifact')}>
-					<Text
-						style={[
-							styles.tabText,
-							{
-								backgroundColor:
-                                activeTab === 'artifact'
-                                    ? constants.COLORS.PRIMARY
-                                    : constants.COLORS.LIGHT_GRAY2,
-							},
-						]}
-					>
-						ARTIFACT
-					</Text>
-					{activeTab === 'artifact' && <ActiveIndicator />}
-				</Pressable>
-				<Pressable style={styles.tab} onPress={() => setActiveTab('character')}>
-					<Text
-						style={[
-							styles.tabText,
-							{
-								backgroundColor:
-                                activeTab === 'character'
-                                    ? constants.COLORS.PRIMARY
-                                    : constants.COLORS.LIGHT_GRAY2,
-							},
-						]}
-					>
-						CHARACTER
-					</Text>
-					{activeTab === 'character' && <ActiveIndicator />}
-				</Pressable>
-				<Pressable style={styles.tab} onPress={() => setActiveTab('creature')}>
-					<Text
-						style={[
-							styles.tabText,
-							{
-								backgroundColor:
-                                activeTab === 'creature'
-                                    ? constants.COLORS.PRIMARY
-                                    : constants.COLORS.LIGHT_GRAY2,
-							},
-						]}
-					>
-						CREATURE
-					</Text>
-					{activeTab === 'creature' && <ActiveIndicator />}
-				</Pressable>
+				<View style={styles.tab_container} >
+					<Pressable style={styles.tab} onPress={() => setActiveTab('artifact')}>
+						<Text
+							style={[
+								styles.tabText,
+								{
+									backgroundColor:
+									activeTab === 'artifact'
+										? constants.COLORS.PRIMARY
+										: constants.COLORS.LIGHT_GRAY2,
+								},
+							]}
+						>
+							ARTIFACT
+						</Text>
+						{activeTab === 'artifact' && <ActiveIndicator />}
+					</Pressable>
+					<Pressable style={styles.tab} onPress={() => setActiveTab('character')}>
+						<Text
+							style={[
+								styles.tabText,
+								{
+									backgroundColor:
+									activeTab === 'character'
+										? constants.COLORS.PRIMARY
+										: constants.COLORS.LIGHT_GRAY2,
+								},
+							]}
+						>
+							CHARACTER
+						</Text>
+						{activeTab === 'character' && <ActiveIndicator />}
+					</Pressable>
+					<Pressable style={styles.tab} onPress={() => setActiveTab('creature')}>
+						<Text
+							style={[
+								styles.tabText,
+								{
+									backgroundColor:
+									activeTab === 'creature'
+										? constants.COLORS.PRIMARY
+										: constants.COLORS.LIGHT_GRAY2,
+								},
+							]}
+						>
+							CREATURE
+						</Text>
+						{activeTab === 'creature' && <ActiveIndicator />}
+					</Pressable>
+				</View>
 			</ScrollView>
             {activeTab === 'artifact' && <Cards type="Artifact" {...{ navigation }} />}
             {activeTab === 'character' && <Cards type="Character" {...{ navigation }} />}
@@ -84,15 +87,15 @@ export const HomeScreen = ({ navigation, route }) => {
 };
 
 const styles = StyleSheet.create({
-    app:{
-        backgroundColor: constants.COLORS.DARK,
-        flex: 1,
-    },
-    icon:{
-        backgroundColor: constants.COLORS.PRIMARY,
-        padding: 3,
-        borderRadius: 50,
-    },
+	app: {
+		backgroundColor: constants.COLORS.DARK,
+		flex: 1,
+	},
+	icon: {
+		backgroundColor: constants.COLORS.PRIMARY,
+		padding: 3,
+		borderRadius: 50,
+	},
 	container: {
 		backgroundColor: constants.COLORS.LIGHT_GRAY2
 	},
@@ -102,20 +105,25 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		paddingTop: 8,
 		paddingBottom: 8,
-        backgroundColor: constants.COLORS.GRAY,
+		backgroundColor: constants.COLORS.GRAY,
 	},
 	title: {
-        color: constants.COLORS.WHITE,
-        fontSize: 18,
-        fontWeight: "bold"
+		color: constants.COLORS.WHITE,
+		fontSize: 18,
+		fontWeight: "bold"
 	},
 	tabstop: {
 		marginVertical: 8,
-        marginLeft: 25,
+		marginLeft: 0,
 	},
 	tab: {
-        alignContent: "space-between",
-        marginRight: 10,
+		alignContent: "space-around",
+		marginHorizontal: 8,
+	},
+	tab_container: {
+		width,
+		flexDirection: 'row',
+		justifyContent: 'center',
 	},
 	tabText: {
         fontSize: 12,
