@@ -3,9 +3,6 @@ import { View, ScrollView,  Text, Image, StyleSheet, SafeAreaView } from 'react-
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
 
 import constants from '../utils/constants';
-import { color } from 'react-native-reanimated';
-
-
 
 export const DetailsScreen = ({ navigation, route }) => {
     
@@ -38,18 +35,19 @@ export const DetailsScreen = ({ navigation, route }) => {
             </View>
             <ScrollView>
                 <View style={styles.content}>
-                    <View style={styles.contentPrimary}>
                         <Image
                         resizeMode="cover"
                         style={styles.poster}
                         source={{
                             uri: `${card.imageUrl}`,
                         }}/>
+                        {console.log(card.imageUrl)}
+                    <View style={styles.contentPrimary}>
                         <View>
                             <Text style={styles.halfParagraph}  numberOfLines={1}><FontAwesome name="user" size={16} color={constants.COLORS.PRIMARY}/> Artist: <Text style={{fontWeight: 'bold'}}>{card.artist}</Text></Text>
                             <Text style={styles.halfParagraph}> <Text style={{color:constants.COLORS.PRIMARY,fontSize:16}}>#</Text>  Number: <Text style={{fontWeight: 'bold'}}>{card.number}</Text></Text>
-                            <Text style={styles.halfParagraphRounded}>Mana cost <Text style={styles.circle}>{card.cmc}</Text></Text>
-                            <Text style={styles.halfParagraphRounded}>Multiverse <Text>{card.multiverseid}</Text></Text>
+                            <Text style={styles.halfParagraphRounded}>Mana cost: <Text style={styles.circle}>{card.cmc}</Text></Text>
+                            <Text style={styles.halfParagraphRounded}>Multiverse: <Text style={styles.circle}>{card.multiverseid}</Text></Text>
                             <Text style={styles.halfParagraph}><Text style={styles.title}>Rarity:</Text> {card.rarity}</Text>
                         </View>
                     </View>
@@ -114,7 +112,7 @@ const styles = StyleSheet.create({
         fontSize:16,
     },
     circle:{
-        backgroundColor: constants.COLORS.LIGHT_GRAY2,
+        fontWeight: "bold"
     },
     poster: {
         borderRadius: 16,
@@ -187,8 +185,6 @@ const styles = StyleSheet.create({
         paddingBottom: 10,
         paddingHorizontal: 10,
         borderRadius: 50,
-        textAlign: "justify",
-        flexWrap: "wrap"
     },
     containerButtonIcon: {
         marginTop: 25,
